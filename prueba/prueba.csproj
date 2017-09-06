@@ -63,6 +63,12 @@
     <Compile Include="IngresoMonto.Designer.cs">
       <DependentUpon>IngresoMonto.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuAdministrador.Designer.cs">
+      <DependentUpon>MenuAdministrador.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>

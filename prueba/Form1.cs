@@ -57,9 +57,32 @@ namespace prueba
                         Usuario u = new Usuario(lector[0].ToString(),lector[1].ToString(),lector[2].ToString(),Convert.ToInt32(lector[3]), Convert.ToInt32(lector[4]));
                         Util.setUsuario(u);
                         MessageBox.Show("Usuario Correcto bienvenido","Puedes Pasar");
-                        MenuPrincipal MP = new MenuPrincipal();
-                        MP.Show();
-                        this.Hide();
+                        if (lector[3].Equals("Activo"))
+                        {
+                            if (lector[4].Equals("Usuario"))
+                            {
+                                MenuPrincipal MP = new MenuPrincipal();
+                                MP.Show();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                MenuAdministrador MA = new MenuAdministrador();
+                                MA.Show();
+                                this.Hide();
+                            }
+                        }
+                        else
+                        {
+                            if (lector[3].Equals("Bloqueado"))
+                            {
+                                MessageBox.Show("Su cuenta está bloqueada","Error");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Su cuenta está inactiva","Hable con administración");
+                            }
+                        }
                     }
                     else
                     {
