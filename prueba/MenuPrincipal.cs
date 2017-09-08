@@ -24,7 +24,7 @@ namespace prueba
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Util.getF1().Close();
         }
         private void historialDeGastosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -44,6 +44,19 @@ namespace prueba
         {
             IngresoMonto IM = new IngresoMonto();
             IM.Show();
+            this.Hide();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void añadirGastoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            añadirGasto AG = new añadirGasto();
+            Util.setF1(this);
+            AG.Show();
             this.Hide();
         }
     }

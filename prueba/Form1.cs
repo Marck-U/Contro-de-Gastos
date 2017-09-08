@@ -37,14 +37,16 @@ namespace prueba
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btn_entrar_Click(object sender, EventArgs e)
         {
-            if ( txt_name.Text.Trim().Equals("") || txt_password.Text.Trim().Equals(""))
+            try
             {
-                MessageBox.Show("No dejes campos vacios","completa todo los campos");  
+            if (txt_name.Text.Trim().Equals("") || txt_password.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("No dejes campos vacios", "completa todo los campos");
             }
             else
             {
@@ -54,13 +56,13 @@ namespace prueba
                     if (lector[2].Equals(txt_password.Text))
                     {
                         Util.setF1(this);
-                        Usuario u = new Usuario(lector[0].ToString(),lector[1].ToString(),lector[2].ToString(),Convert.ToInt32(lector[3]), Convert.ToInt32(lector[4]));
+                        Usuario u = new Usuario(lector[0].ToString(), lector[1].ToString(), lector[2].ToString(), Convert.ToInt32(lector[3]), Convert.ToInt32(lector[4]));
                         Util.setUsuario(u);
-                        MessageBox.Show("Usuario Correcto bienvenido","Puedes Pasar");
-                        if (lector[3].Equals("Activo"))
+                        if (lector[3].Equals(1))
                         {
-                            if (lector[4].Equals("Usuario"))
+                            if (lector[4].Equals(1))
                             {
+                                MessageBox.Show("bienvenido Señor", "Puedes Pasar");
                                 MenuPrincipal MP = new MenuPrincipal();
                                 MP.Show();
                                 this.Hide();
@@ -74,29 +76,34 @@ namespace prueba
                         }
                         else
                         {
-                            if (lector[3].Equals("Bloqueado"))
+                            if (lector[3].Equals(2))
                             {
-                                MessageBox.Show("Su cuenta está bloqueada","Error");
+                                MessageBox.Show("Su cuenta está bloqueada", "Error");
                             }
                             else
                             {
-                                MessageBox.Show("Su cuenta está inactiva","Hable con administración");
+                                MessageBox.Show("Su cuenta está inactiva", "Hable con administración");
                             }
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Contraseña incorrecta","vuelve a intentarlo");
+                        MessageBox.Show("Contraseña incorrecta", "vuelve a intentarlo");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Nombre de usuario incorrecto","No te equivoques muy seguido");
+                    MessageBox.Show("Nombre de usuario incorrecto", "No te equivoques muy seguido");
                 }
-            }
-        }
+             }
+          }
+           catch (Exception ex)
+           {
+            MessageBox.Show(ex.Message, "Error crítico");
+           }
+         }
 
-        private void btn_registro_Click(object sender, EventArgs e)
+    private void btn_registro_Click(object sender, EventArgs e)
         {
             registro r = new registro();
             r.Show();
@@ -130,3 +137,4 @@ namespace prueba
         }
     }
 }
+

@@ -36,6 +36,7 @@
             this.resumenEconomicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresoDeMontosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.añadirGastoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +57,7 @@
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Name";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // menuStrip1
             // 
@@ -71,6 +73,7 @@
             // 
             this.menusToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.historialDeGastosToolStripMenuItem,
+            this.añadirGastoToolStripMenuItem,
             this.resumenEconomicoToolStripMenuItem,
             this.ingresoDeMontosToolStripMenuItem,
             this.salirToolStripMenuItem});
@@ -89,8 +92,8 @@
             // resumenEconomicoToolStripMenuItem
             // 
             this.resumenEconomicoToolStripMenuItem.Name = "resumenEconomicoToolStripMenuItem";
-            this.resumenEconomicoToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.resumenEconomicoToolStripMenuItem.Text = "Resumen economico";
+            this.resumenEconomicoToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.resumenEconomicoToolStripMenuItem.Text = "Resumen Cuenta";
             this.resumenEconomicoToolStripMenuItem.Click += new System.EventHandler(this.resumenEconomicoToolStripMenuItem_Click);
             // 
             // ingresoDeMontosToolStripMenuItem
@@ -106,6 +109,13 @@
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
+            // añadirGastoToolStripMenuItem
+            // 
+            this.añadirGastoToolStripMenuItem.Name = "añadirGastoToolStripMenuItem";
+            this.añadirGastoToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.añadirGastoToolStripMenuItem.Text = "Añadir Gasto";
+            this.añadirGastoToolStripMenuItem.Click += new System.EventHandler(this.añadirGastoToolStripMenuItem_Click);
             // 
             // MenuPrincipal
             // 
@@ -141,5 +151,6 @@
         private System.Windows.Forms.ToolStripMenuItem resumenEconomicoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ingresoDeMontosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem añadirGastoToolStripMenuItem;
     }
 }
