@@ -16,5 +16,10 @@ namespace prueba
         {
             InitializeComponent();
         }
+
+        private void MenuAdministrador_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Util.getF1().Close();
+        }
     }
 }

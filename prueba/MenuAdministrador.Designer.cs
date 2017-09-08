@@ -28,9 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // MenuAdministrador
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "MenuAdministrador";
             this.Text = "MenuAdministrador";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuAdministrador_FormClosing);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

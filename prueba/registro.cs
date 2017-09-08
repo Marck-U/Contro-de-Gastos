@@ -16,5 +16,12 @@ namespace prueba
         {
             InitializeComponent();
         }
+
+        private void registro_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MenuPrincipal MP = new MenuPrincipal();
+            MP.Show();
+            this.Hide();
+        }
     }
 }

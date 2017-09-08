@@ -38,6 +38,7 @@
             this.Name = "registro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "registro";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.registro_FormClosing);
             this.ResumeLayout(false);
 
         }

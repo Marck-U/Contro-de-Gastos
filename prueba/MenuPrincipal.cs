@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace prueba
 {
     public partial class MenuPrincipal : Form
     {
+        SQL sql = new SQL();
         public MenuPrincipal()
         {
             InitializeComponent();
@@ -49,15 +51,29 @@ namespace prueba
 
         private void label2_Click(object sender, EventArgs e)
         {
-           
+            
         }
 
         private void añadirGastoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             añadirGasto AG = new añadirGasto();
-            Util.setF1(this);
             AG.Show();
             this.Hide();
+        }
+
+        public void nombre()
+        {
+            lbl_nombre.Text = Util.getUsuario().getNombre().ToString();
+        }
+
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+            nombre();
+        }
+
+        private void MenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Util.getF1().Close();
         }
     }
 }

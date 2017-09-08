@@ -62,7 +62,7 @@ namespace prueba
                         {
                             if (lector[4].Equals(1))
                             {
-                                MessageBox.Show("bienvenido Señor", "Puedes Pasar");
+                                MessageBox.Show("bienvenido Señor : " + u.getNombre().ToString() +"","Puedes Pasar");
                                 MenuPrincipal MP = new MenuPrincipal();
                                 MP.Show();
                                 this.Hide();
