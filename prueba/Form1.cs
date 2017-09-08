@@ -117,15 +117,15 @@ namespace prueba
                 e.Handled = false;
             }
             else
-      if (Char.IsControl(e.KeyChar)) //permitir teclas de control como retroceso
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                //el resto de teclas pulsadas se desactivan
-                e.Handled = true;
-            }
+                if (Char.IsControl(e.KeyChar)) //permitir teclas de control como retroceso
+                {
+                     e.Handled = false;
+                }
+                else
+                {
+                     //el resto de teclas pulsadas se desactivan
+                     e.Handled = true;
+                }
         }
 
         private void txt_password_KeyPress(object sender, KeyPressEventArgs e)
