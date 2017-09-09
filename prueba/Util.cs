@@ -10,6 +10,7 @@ namespace prueba
     {
         private static Form1 f1;
         private static Usuario usuario;
+        private static MenuPrincipal MP;
 
         public static void setF1(Form1 f1)
         {
@@ -29,6 +30,15 @@ namespace prueba
             return Util.usuario;
         }
 
+        public static void setMP(MenuPrincipal mm)
+        {
+            Util.MP = MP;
+        }
+
+        public static MenuPrincipal getMP()
+        {
+            return Util.MP;
+        }
 
     }
 }

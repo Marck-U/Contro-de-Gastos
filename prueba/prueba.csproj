@@ -98,6 +98,9 @@
     <Compile Include="SQL.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Util.cs" />
+    <EmbeddedResource Include="añadirGasto.resx">
+      <DependentUpon>añadirGasto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

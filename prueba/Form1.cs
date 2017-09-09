@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
 
 namespace prueba
 {
@@ -50,10 +51,11 @@ namespace prueba
             }
             else
             {
+                String c = GetSHA1(txt_password.Text);
                 SqlDataReader lector = sql.consulta("SELECT * FROM usuario WHERE rut = '" + txt_name.Text + "'");
                 if (lector.Read())
                 {
-                    if (lector[2].Equals(txt_password.Text))
+                    if (lector[2].Equals(c))
                     {
                         Util.setF1(this);
                         Usuario u = new Usuario(lector[0].ToString(), lector[1].ToString(), lector[2].ToString(), Convert.ToInt32(lector[3]), Convert.ToInt32(lector[4]));
@@ -97,11 +99,11 @@ namespace prueba
                 }
              }
           }
-           catch (Exception ex)
-           {
-            MessageBox.Show(ex.Message, "Error crítico");
-           }
-         }
+          catch (Exception ex)
+          {
+               MessageBox.Show(ex.Message, "Error crítico");
+          }
+       }
 
     private void btn_registro_Click(object sender, EventArgs e)
         {
@@ -110,7 +112,7 @@ namespace prueba
             this.Hide();
         }
 
-        private void txt_name_KeyPress(object sender, KeyPressEventArgs e)
+    private void txt_name_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
             {
@@ -128,12 +130,23 @@ namespace prueba
                 }
         }
 
-        private void txt_password_KeyPress(object sender, KeyPressEventArgs e)
+    private void txt_password_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar == 8) || (e.KeyChar == 32))
                 e.Handled = false;
             else
                 e.Handled = true;
+        }
+
+    public static string GetSHA1(string str)
+        {
+            SHA1 sha1 = SHA1Managed.Create();
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            byte[] stream = null;
+            StringBuilder sb = new StringBuilder();
+            stream = sha1.ComputeHash(encoding.GetBytes(str));
+            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+            return sb.ToString();
         }
     }
 }

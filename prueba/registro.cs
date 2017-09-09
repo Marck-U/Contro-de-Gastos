@@ -48,15 +48,23 @@ namespace prueba
                 {
                     if (validarRut( txt_rut.Text))
                     {
-                        if(sql.verificar("SELECT * FROM usuario WHERE '" + txt_rut.Text + "'"))
+                        if(sql.verificar("SELECT * FROM usuario WHERE rut = '" + txt_rut.Text + "'"))
                         {
                             MessageBox.Show("Ya existe un usuario registrado con ese rut","Error");
                         }
                         else
                         {
                             String c = GetSHA1(txt_clave.Text);
-                            //  int r = sql.ejecutar("INSERT INTO usuario values ('" + Convert.ToInt32(txt_rut.Text) + "'" + txt_nombre.Text + "','" + txt_clave.Text + "','" + "1" + "','" + "1" + "','" + txt_direccion.Text + "','"+"1"+")");
-                            MessageBox.Show(c);
+                            int r = sql.ejecutar("INSERT INTO usuario values ('" + Convert.ToInt32(txt_rut.Text) + "','" + txt_nombre.Text + "','" + c + "','" + "1" + "','" + "1" + "','" + txt_direccion.Text + "','"+"1'"+")");
+                            if (r > 0)
+                            {
+                                MessageBox.Show("Se ha registrado con exito", "Registro completo");
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se pudo conretar el registro","Erro de registro");
+                            }
                         }
                     }
                     else

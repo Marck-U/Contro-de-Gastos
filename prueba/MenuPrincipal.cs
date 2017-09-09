@@ -36,8 +36,9 @@ namespace prueba
         }
 
         private void resumenEconomicoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        {           
             ResumenEconomico RE = new ResumenEconomico();
+            Util.setMP(this);
             RE.Show();
             this.Hide();
         }
