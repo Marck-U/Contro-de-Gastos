@@ -69,7 +69,7 @@ namespace prueba
                 e.Handled = true;
             }
         }
-        void validatxtnumeros(KeyPressEventArgs e)
+       public void validatxtrut(KeyPressEventArgs e)
 
         {
 
@@ -144,7 +144,7 @@ namespace prueba
 
         private void txt_rut_KeyPress(object sender, KeyPressEventArgs e)
         {
-            validatxtnumeros(e);
+            validatxtrut(e);
         }
 
         private void añadirGastoToolStripMenuItem_Click(object sender, EventArgs e)

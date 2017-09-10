@@ -62,7 +62,7 @@
             this.btn_ingresar.ForeColor = System.Drawing.Color.Brown;
             this.btn_ingresar.Location = new System.Drawing.Point(112, 100);
             this.btn_ingresar.Name = "btn_ingresar";
-            this.btn_ingresar.Size = new System.Drawing.Size(100, 23);
+            this.btn_ingresar.Size = new System.Drawing.Size(111, 31);
             this.btn_ingresar.TabIndex = 2;
             this.btn_ingresar.Text = "Ingresar";
             this.btn_ingresar.UseVisualStyleBackColor = true;
@@ -75,7 +75,7 @@
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(284, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(274, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -125,7 +125,7 @@
             this.txt_monto.Location = new System.Drawing.Point(112, 62);
             this.txt_monto.Name = "txt_monto";
             this.txt_monto.ShortcutsEnabled = false;
-            this.txt_monto.Size = new System.Drawing.Size(100, 20);
+            this.txt_monto.Size = new System.Drawing.Size(111, 20);
             this.txt_monto.TabIndex = 1;
             this.txt_monto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_monto_KeyPress);
             // 
@@ -145,7 +145,7 @@
             this.txt_rut.Location = new System.Drawing.Point(112, 36);
             this.txt_rut.Name = "txt_rut";
             this.txt_rut.ShortcutsEnabled = false;
-            this.txt_rut.Size = new System.Drawing.Size(100, 20);
+            this.txt_rut.Size = new System.Drawing.Size(111, 20);
             this.txt_rut.TabIndex = 5;
             this.txt_rut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_rut_KeyPress);
             // 
@@ -155,7 +155,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(274, 157);
             this.Controls.Add(this.txt_rut);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_ingresar);
