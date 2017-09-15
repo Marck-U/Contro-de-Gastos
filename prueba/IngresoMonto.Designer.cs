@@ -146,7 +146,7 @@
             this.txt_rut.Name = "txt_rut";
             this.txt_rut.ShortcutsEnabled = false;
             this.txt_rut.Size = new System.Drawing.Size(111, 20);
-            this.txt_rut.TabIndex = 5;
+            this.txt_rut.TabIndex = 0;
             this.txt_rut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_rut_KeyPress);
             // 
             // IngresoMonto

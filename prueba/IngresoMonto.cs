@@ -116,25 +116,39 @@ namespace prueba
         private void btn_ingresar_Click(object sender, EventArgs e)
         {
             try { 
-            if (txt_monto.Text.Trim().Equals(""))
+            if (txt_monto.Text.Trim().Equals("") || txt_rut.Text.Trim().Equals(""))
             {
-                MessageBox.Show("No deje el campo vacio");
+                MessageBox.Show("No deje los campos vacios","Complete todo los espacios");
             }
             else
             {
-                if (MessageBox.Show("Desea ingresar ese monto","Estas seguro",MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    int i = sql.ejecutar("INSERT INTO monto (rut,monto) values ('"+ txt_rut.Text + "','" + Convert.ToInt32(txt_monto.Text) + "') ");
-                    if(i > 0)
+                    if (sql.verificar("SELECT rut FROM usuario  WHERE rut ='" + txt_rut.Text + "'"))
                     {
-                        MessageBox.Show("Monto Agregado");
+                        if (txt_monto.Text.Trim().Equals("0"))
+                        {
+                            MessageBox.Show("No puede agregar un monto 0", "Usted es tonto?");
+                        }
+                        else
+                        {
+                            if (MessageBox.Show("Desea ingresar ese monto", "Estas seguro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                int i = sql.ejecutar("INSERT INTO monto (rut,monto) values ('" + txt_rut.Text + "','" + Convert.ToInt32(txt_monto.Text) + "') ");
+                                if (i > 0)
+                                {
+                                    MessageBox.Show("Monto Agregado");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Ocurrio un error");
+                                }
+                            }
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Ocurrio un error");
-                    }
+                        MessageBox.Show("Rut equivocado","No existe pruebe otro");
+                    } 
                 }
-            }
             }
             catch (Exception)
             {

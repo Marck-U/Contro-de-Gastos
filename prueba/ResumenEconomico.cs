@@ -38,13 +38,24 @@ namespace prueba
 
         private void montoActual()
         {
+            int total;
             String rut = Util.getUsuario().getRut();
+            String rut2 = Util.getUsuario().getRut();
+            lbl_name.Text = Util.getUsuario().getNombre();
             SqlDataReader m = sql.consulta("SELECT SUM(monto) FROM  monto WHERE rut = '" + rut + "'");
+            SqlDataReader g = sql.consulta("SELECT SUM(gasto) FROM historialGasto WHERE rut ='" + rut2 + "'");
             if (m.Read())
             {               
                 lbl_monto.Text = m[0].ToString();
+                if (g.Read())
+                {
+                    lbl_gasto.Text = g[0].ToString();
+                    total = (Convert.ToInt32(m[0]) - Convert.ToInt32(g[0]));
+                    lbl_total.Text = total.ToString();
+                }
             }
         }
+
 
         private void historialDeGastoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -70,6 +81,11 @@ namespace prueba
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Util.getF1().Close();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

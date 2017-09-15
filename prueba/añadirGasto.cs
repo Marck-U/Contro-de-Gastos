@@ -80,8 +80,10 @@ namespace prueba
                                 if (MessageBox.Show("Este es el gasto que quiere añadir", "Confirme", MessageBoxButtons.YesNo) == DialogResult.Yes)
                                 {
                                     int g = sql.ejecutar("INSERT INTO historialGasto (rut,descripcionGasto,gasto,fecha ) values('" + txt_rut.Text + "','" + txt_descripcion.Text + "','" + Convert.ToInt32(txt_total.Text) + "','" + Convert.ToDateTime(fecha) + "')");
+
                                     if (g > 0)
                                     {
+
                                         MessageBox.Show("Gastro Registrado", "Registro completo");
                                     }
                                     else

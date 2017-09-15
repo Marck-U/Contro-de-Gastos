@@ -51,6 +51,11 @@
     <Compile Include="añadirGasto.Designer.cs">
       <DependentUpon>añadirGasto.cs</DependentUpon>
     </Compile>
+    <Compile Include="controlGDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>controlGDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +137,17 @@
     <EmbeddedResource Include="ResumenEconomico.resx">
       <DependentUpon>ResumenEconomico.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="controlGDataSet.xsc">
+      <DependentUpon>controlGDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="controlGDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>controlGDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="controlGDataSet.xss">
+      <DependentUpon>controlGDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

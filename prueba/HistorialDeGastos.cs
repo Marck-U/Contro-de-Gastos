@@ -7,16 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace prueba
 {
     public partial class HistorialDeGastos : Form
     {
+        SQL sql = new SQL(); 
         public HistorialDeGastos()
         {
             InitializeComponent();
         }
-
+            
         private void HistorialDeGastos_FormClosing(object sender, FormClosingEventArgs e)
         {
             MenuPrincipal MP = new MenuPrincipal();
@@ -50,6 +52,35 @@ namespace prueba
             IngresoMonto IG = new IngresoMonto();
             IG.Show();
             this.Hide();
+        }
+
+        private void HistorialDeGastos_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'controlGDataSet.historialGasto' Puede moverla o quitarla según sea necesario.
+            gasto();
+            llenaGrid();
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        protected void llenaGrid()
+        {
+            sql.llenaGrid(GridGastos,"SELECT * FROM historialGasto WHERE rut ='"+ Util.getUsuario().getRut() +"'");
+            GridGastos.Columns[0].Visible = false;
+        }
+        protected void gasto()
+        {
+            String rut = Util.getUsuario().getRut();
+            lbl_name.Text = Util.getUsuario().getNombre();
+            SqlDataReader g = sql.consulta("SELECT SUM(gasto) FROM historialGasto WHERE rut ='"+ rut +"'");
+            if (g.Read())
+            {
+                lbl_gasto.Text = g[0].ToString();
+            }
         }
     }
 }

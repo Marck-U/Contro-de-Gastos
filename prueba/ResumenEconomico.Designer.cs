@@ -36,15 +36,22 @@
             this.añadirGastoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.añadirMontoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbl_name = new System.Windows.Forms.Label();
+            this.lbl_gasto = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lbl_total = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 50);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(29, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.Size = new System.Drawing.Size(124, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Monto Actual :";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -52,9 +59,10 @@
             // lbl_monto
             // 
             this.lbl_monto.AutoSize = true;
-            this.lbl_monto.Location = new System.Drawing.Point(131, 50);
+            this.lbl_monto.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_monto.Location = new System.Drawing.Point(159, 65);
             this.lbl_monto.Name = "lbl_monto";
-            this.lbl_monto.Size = new System.Drawing.Size(0, 13);
+            this.lbl_monto.Size = new System.Drawing.Size(0, 22);
             this.lbl_monto.TabIndex = 1;
             // 
             // menuStrip1
@@ -106,11 +114,75 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // lbl_name
+            // 
+            this.lbl_name.AutoSize = true;
+            this.lbl_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_name.Location = new System.Drawing.Point(159, 40);
+            this.lbl_name.Name = "lbl_name";
+            this.lbl_name.Size = new System.Drawing.Size(0, 22);
+            this.lbl_name.TabIndex = 9;
+            // 
+            // lbl_gasto
+            // 
+            this.lbl_gasto.AutoSize = true;
+            this.lbl_gasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_gasto.Location = new System.Drawing.Point(158, 86);
+            this.lbl_gasto.Name = "lbl_gasto";
+            this.lbl_gasto.Size = new System.Drawing.Size(0, 22);
+            this.lbl_gasto.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(71, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 22);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Usuario :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(37, 87);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(116, 22);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Gastos total :";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 112);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(150, 22);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Total Disponible :";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // lbl_total
+            // 
+            this.lbl_total.AutoSize = true;
+            this.lbl_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_total.Location = new System.Drawing.Point(159, 115);
+            this.lbl_total.Name = "lbl_total";
+            this.lbl_total.Size = new System.Drawing.Size(0, 22);
+            this.lbl_total.TabIndex = 11;
+            // 
             // ResumenEconomico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.lbl_total);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lbl_name);
+            this.Controls.Add(this.lbl_gasto);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lbl_monto);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
@@ -137,5 +209,11 @@
         private System.Windows.Forms.ToolStripMenuItem añadirGastoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem añadirMontoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.Label lbl_name;
+        private System.Windows.Forms.Label lbl_gasto;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbl_total;
     }
 }
