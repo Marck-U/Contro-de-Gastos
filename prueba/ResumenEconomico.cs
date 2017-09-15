@@ -40,10 +40,9 @@ namespace prueba
         {
             int total;
             String rut = Util.getUsuario().getRut();
-            String rut2 = Util.getUsuario().getRut();
             lbl_name.Text = Util.getUsuario().getNombre();
             SqlDataReader m = sql.consulta("SELECT SUM(monto) FROM  monto WHERE rut = '" + rut + "'");
-            SqlDataReader g = sql.consulta("SELECT SUM(gasto) FROM historialGasto WHERE rut ='" + rut2 + "'");
+            SqlDataReader g = sql.consulta("SELECT SUM(gasto) FROM historialGasto WHERE rut ='" + rut + "'");
             if (m.Read())
             {               
                 lbl_monto.Text = m[0].ToString();

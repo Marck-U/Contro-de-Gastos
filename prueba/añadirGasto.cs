@@ -14,6 +14,9 @@ namespace prueba
     public partial class añadirGasto : Form
     {
         SQL sql = new SQL();
+        int total;
+        int monto;
+        int gasto;
         String fecha = DateTime.Now.ToShortDateString();
         public añadirGasto()
         {
@@ -67,46 +70,51 @@ namespace prueba
                 {
                     if (sql.verificar("SELECT * FROM monto where rut ='" + txt_rut.Text + "'"))
                     {
-                        SqlDataReader lector = sql.consulta("exec verificaMonto '" + txt_rut.Text + "','" + Convert.ToInt32(txt_total.Text) + "'");
-                        if (lector.Read())
+                        if (txt_descripcion.Text.Trim().Length < 4)
                         {
-                            String gasto = lector[0].ToString();
-                            if (gasto.Equals("chao"))
-                            {
-                                MessageBox.Show(" No tienes saldo suficiente", "Estamos en crisis");
-                            }
-                            else
-                            {
-                                if (MessageBox.Show("Este es el gasto que quiere añadir", "Confirme", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                                {
-                                    int g = sql.ejecutar("INSERT INTO historialGasto (rut,descripcionGasto,gasto,fecha ) values('" + txt_rut.Text + "','" + txt_descripcion.Text + "','" + Convert.ToInt32(txt_total.Text) + "','" + Convert.ToDateTime(fecha) + "')");
-
-                                    if (g > 0)
-                                    {
-
-                                        MessageBox.Show("Gastro Registrado", "Registro completo");
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Ocurrio un error", "Algo salio mal");
-                                    }
-                                }
-                            }
+                            MessageBox.Show("Descripcion demaciada corta","Está muy corto");
                         }
                         else
                         {
-                            MessageBox.Show("Error", "Error");
+                            SqlDataReader lector = sql.consulta("exec verificaMonto '" + txt_rut.Text + "','" + Convert.ToInt32(txt_total.Text) + "'");
+                            if (lector.Read())
+                            {
+                                String gasto = lector[0].ToString();
+                                if (gasto.Equals("chao"))
+                                {
+                                    MessageBox.Show(" No tienes saldo suficiente", "Estamos en crisis");
+                                }
+                                else
+                                {
+                                    if (MessageBox.Show("Este es el gasto que quiere añadir", "Confirme", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                    {
+                                        int g = sql.ejecutar("INSERT INTO historialGasto (rut,descripcionGasto,gasto,fecha ) values('" + txt_rut.Text + "','" + txt_descripcion.Text.Trim() + "','" + Convert.ToInt32(txt_total.Text) + "','" + Convert.ToDateTime(fecha) + "')");
+                                        if (g > 0)
+                                        {
+                                            MessageBox.Show("Gastro Registrado", "Registro completo");
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Ocurrio un error", "Algo salio mal");
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error", "Error");
+                            }
                         }
                     }
                     else
                     {
-                        MessageBox.Show("rut inexistente","Error");
+                        MessageBox.Show("rut inexistente", "Error");
                     }
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Ocurrio un error","Error");
+                MessageBox.Show("Ocurrio un error", "Error");
             }
         }
 
@@ -205,10 +213,32 @@ namespace prueba
             {
                 e.Handled = false;
             }
+            else if (e.KeyChar == 32)
+            {
+                e.Handled = false;
+            }
             else
             {
                 e.Handled = true;
             }
         }
+        /*  private void montoActual()
+          {
+              String rut = Util.getUsuario().getRut();
+              SqlDataReader m = sql.consulta("SELECT SUM(monto) FROM  monto WHERE rut = '" + rut + "'");
+              if (m.Read())
+              {
+                  monto = (Convert.ToInt32(m[0]));
+                  gasto = Convert.ToInt32(g[0]);
+                //  total = (Convert.ToInt32(m[0]) - Convert.ToInt32(g[0]));
+                  int up = sql.ejecutar("INSERT INTO monto VALUES (monto ='" + total + "' WHERE rut ='" + rut+ "'");
+                  if (up > 0)
+                  {
+                          MessageBox.Show("Monto actualizado");
+                  }
+              }
+          }
+      }
+      */
     }
 }
