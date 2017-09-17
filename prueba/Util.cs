@@ -11,6 +11,7 @@ namespace prueba
         private static Form1 f1;
         private static Usuario usuario;
         private static MenuPrincipal MP;
+        private static MenuAdministrador MA;
 
         public static void setF1(Form1 f1)
         {
@@ -30,7 +31,7 @@ namespace prueba
             return Util.usuario;
         }
 
-        public static void setMP(MenuPrincipal mm)
+        public static void setMP(MenuPrincipal MP)
         {
             Util.MP = MP;
         }
@@ -38,6 +39,16 @@ namespace prueba
         public static MenuPrincipal getMP()
         {
             return Util.MP;
+        }
+
+        public static void setMA(MenuAdministrador MA)
+        {
+            Util.MA = MA;
+        }
+
+        public static MenuAdministrador getMA()
+        {
+            return Util.MA;
         }
 
     }

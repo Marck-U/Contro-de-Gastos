@@ -74,6 +74,24 @@
     <Compile Include="IngresoMonto.Designer.cs">
       <DependentUpon>IngresoMonto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenedores\mantenedorTipoUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenedores\mantenedorTipoUs.Designer.cs">
+      <DependentUpon>mantenedorTipoUs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenedores\mantenedorUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenedores\mantenedorUsuario.Designer.cs">
+      <DependentUpon>mantenedorUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenedores\matenedorEstadoUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenedores\matenedorEstadoUs.Designer.cs">
+      <DependentUpon>matenedorEstadoUs.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +132,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IngresoMonto.resx">
       <DependentUpon>IngresoMonto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenedores\mantenedorUsuario.resx">
+      <DependentUpon>mantenedorUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenedores\matenedorEstadoUs.resx">
+      <DependentUpon>matenedorEstadoUs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuAdministrador.resx">
       <DependentUpon>MenuAdministrador.cs</DependentUpon>
@@ -162,7 +186,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Fondo1.jpg" />
+    <Content Include="Resources\f68645221826c81.jpg" />
+    <Content Include="Resources\masculine-user-with-suit-tie-and-locked-padlock_icon-icons.com_68295.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
